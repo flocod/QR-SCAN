@@ -47,7 +47,7 @@
       });
       scanner.addListener("scan", function (content) {
         play();
-        $(".display").css("style","flex" );
+        $(".display").css("display","flex");
         $("#text").html(content);
       });
       Instascan.Camera.getCameras()
