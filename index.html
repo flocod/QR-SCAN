@@ -8,13 +8,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-
   </head>
   <body>
-     
+    <style>
+      body {
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 auto;
+      }
 
-    <video id="preview" style="transform: scaleX(-1);"></video>
-    <div id="text"></div>
+      .display {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        
+      }
+      .display  #text{
+        display: block;
+        width: 80%;
+         padding: 10px;
+         background:greenyellow;
+         color: black;
+         margin-top: 5px;
+         border-radius: 4px;
+         font-family: Arial, Helvetica, sans-serif;
+         font-size: 1.3em;
+      }
+    </style>
+
+    <video id="preview" style="transform: scaleX(-1)"></video>
+    <div class="display"><div id="text">sfsf</div></div>
 
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({
@@ -29,12 +54,14 @@
           if (cameras.length > 0) {
             scanner.start(cameras[1]);
           } else {
-            console.error("No cameras found.");
+            console.log("No cameras found.");
             alert("No cameras found.");
           }
         })
         .catch(function (e) {
-          console.error(e);
+          console.log(e);
+          console.log("No cameras found.");
+          alert("No cameras found.");
         });
 
       function play() {
@@ -42,7 +69,6 @@
         audio.play();
       }
     </script>
-
 
     <audio
       id="audio"
