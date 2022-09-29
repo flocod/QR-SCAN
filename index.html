@@ -18,11 +18,11 @@
       }
 
       .display {
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         width: 100%;
-
+        
         
       }
       .display  #text{
@@ -47,6 +47,7 @@
       });
       scanner.addListener("scan", function (content) {
         play();
+        $(".display").css("style","flex" );
         $("#text").html(content);
       });
       Instascan.Camera.getCameras()
